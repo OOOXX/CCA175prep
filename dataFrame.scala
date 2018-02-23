@@ -20,7 +20,7 @@ object DataFrame {
     
     import spark.implicits._
     
-    val empRDD = spark.sparkContext.textFile("/home/lei/Input/Data/emp.txt")
+    val empRDD = spark.sparkContext.textFile("/home/OOOXX/Input/Data/emp.txt")
     val empDF = empRDD.mapPartitions(_.drop(1)).filter(x => x.length() > 0)
     .map(_.split('|'))
     .map(p => Employee(p(0).trim.toInt, p(1), p(2), p(3).trim.toInt, p(4).trim.toInt))
