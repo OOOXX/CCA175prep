@@ -20,7 +20,7 @@ object Spark_StructType2 {
     
     import spark.implicits._
     
-    val personRDD = spark.sparkContext.textFile("/home/lei/Input/Data/person.txt")
+    val personRDD = spark.sparkContext.textFile("/home/OOOXX/Input/Data/person.txt")
     val schema = StructType(Array(StructField("FirstName", StringType, true), StructField("LastName", StringType, true), 
         StructField("Age", IntegerType, true)));
     
@@ -31,9 +31,9 @@ object Spark_StructType2 {
     val results = spark.sql("SELECT FirstName, Age FROM person")
     results.show()
     
-    personDF.write.parquet("/home/lei/Input/Data/person_2.parquet")
+    personDF.write.parquet("/home/OOOXX/Input/Data/person_2.parquet")
     
-    val personParquetDF = spark.read.parquet("/home/lei/Input/Data/person_2.parquet")
+    val personParquetDF = spark.read.parquet("/home/OOOXX/Input/Data/person_2.parquet")
     personParquetDF.filter("Age > 25").show()
     
    // val temp = personParquetDF.groupBy("FirstName", "LastName").agg(personParquetDF.col("Age"))
