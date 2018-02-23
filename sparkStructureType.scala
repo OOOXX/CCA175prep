@@ -24,7 +24,7 @@ object Spark_StructType {
     
     import spark.implicits._
     
-    val peopleRDD = spark.sparkContext.textFile("/home/lei/Input/Data/person.txt")
+    val peopleRDD = spark.sparkContext.textFile("/home/OOOXX/Input/Data/person.txt")
     peopleRDD.foreach(println)
     println("********************")
 
