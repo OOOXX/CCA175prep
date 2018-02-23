@@ -15,7 +15,7 @@ object JSONReader {
     .getOrCreate()
 
     
-    val path = "/home/lei/Input/Data/sales.json"
+    val path = "/home/OOOXX/Input/Data/sales.json"
     val salesDF = sqlContext.read.json(path)
     salesDF.show()
     salesDF.createOrReplaceTempView("sales")
