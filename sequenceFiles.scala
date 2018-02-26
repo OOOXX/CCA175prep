@@ -15,11 +15,11 @@ object SequenceFiles {
     val conf = new SparkConf().setAppName("SequenceFiles").setMaster("local[*]")
     val sc = new SparkContext(conf)
   
-    val data = sc.textFile("/home/lei/Input/Data/olympics_data.txt")
+    val data = sc.textFile("/home/OOOXX/Input/Data/olympics_data.txt")
     data.take(5).foreach(println)
     data.map(x => x.split(",")).map(x => (x(1).toString(), x(2).toString())).foreach(println)
     val pairs: RDD[(String, String)] = data.map(x => x.split(",")).map(x => (x(1).toString(), x(2).toString))
-    pairs.saveAsSequenceFile("/home/lei/Input/Data/rdd_to_seq")
+    pairs.saveAsSequenceFile("/home/OOOXX/Input/Data/rdd_to_seq")
     
   //  val data1: RDD[(String, String)] = sc.sequenceFile("/home/lei/Input/Data/rdd_to_seq/part-00000", 
   //      classOf[Text], classOf[Text])
