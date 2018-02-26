@@ -27,7 +27,7 @@ object DataFramesRollup {
     
     import spark.implicits._
     
-    val objDataBean = spark.sparkContext.textFile("/home/lei/Input/Data/campaign.csv")
+    val objDataBean = spark.sparkContext.textFile("/home/OOOXX/Input/Data/campaign.csv")
     val first = objDataBean.first()
     val header: RDD[String] = spark.sparkContext.parallelize(Array(first))
     
@@ -55,7 +55,7 @@ object DataFramesRollup {
         + "," + checkForComma(row(9)) + "," + checkForComma(row(10)) + "," + checkForComma(row(11)) + "," + checkForComma(row(12)) + ","
         + checkForComma(row(13)) + "," + checkForComma(row(14)) + "," + checkForComma(row(15)))
         
-    header.union(finalRDD).coalesce(1, true).saveAsTextFile("/home/lei/Input/Data/campaign.txt")
+    header.union(finalRDD).coalesce(1, true).saveAsTextFile("/home/OOOXX/Input/Data/campaign.txt")
     
     
 
