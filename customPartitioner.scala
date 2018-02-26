@@ -15,7 +15,7 @@ object CustomPartitioner {
     .config("spark.some.config.option", "some-value")
     .getOrCreate()
     
-    val inputFile = spark.sparkContext.textFile("/home/lei/Input/Data/partitioner.txt")
+    val inputFile = spark.sparkContext.textFile("/home/OOOXX/Input/Data/partitioner.txt")
     val pairRDD = inputFile.flatMap(x => x.split(" ")).map(x => (x, 1))
     val partitionData = pairRDD.partitionBy(new MyCustomerPartitioner(2)).map(x => x._1)
     
@@ -24,7 +24,7 @@ object CustomPartitioner {
     val partitionOutput = partitionData.mapPartitionsWithIndex((partitionIndex, dataIterator) => dataIterator.
         map(dataInfor => dataInfor + " is located in " + partitionIndex + " partition."));
     
-    partitionOutput.saveAsTextFile("/home/lei/Input/Data/partitionerOut")
+    partitionOutput.saveAsTextFile("/home/OOOXX/Input/Data/partitionerOut")
     
   }
   
